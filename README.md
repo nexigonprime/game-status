@@ -56,11 +56,11 @@ Armazena o status mais recente dos servidores, incluindo o número de jogadores,
 
 ## Como Executar
 
-1. **baixe o Repositório**:
-    Clone o repositório para sua máquina local:
-    ```bash
-    git clone <repo-url>
-    ```
+1. **baixe o arquivo**:
+    
+    **versão para baixar as releases**: [download](https://github.com/nexigonprime/game-status/releases/tag/server_status_1.0)
+
+---
 
 2. **Instale as Dependências**:
     Navegue até o diretório do projeto e instale as dependências:
@@ -68,11 +68,15 @@ Armazena o status mais recente dos servidores, incluindo o número de jogadores,
     npm install
     ```
 
+---
+
 3. **Inicie o Servidor**:
     Após instalar as dependências, inicie o servidor com o seguinte comando:
     ```bash
     npm start
     ```
+
+---
 
 4. **Acesse a Aplicação**:
     Abra o navegador e vá para o endereço [http://localhost:3000](http://localhost:3000) para visualizar a interface do sistema.
