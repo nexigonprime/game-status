@@ -91,6 +91,9 @@ Armazena o status mais recente dos servidores, incluindo o número de jogadores,
 
 2. Após preencher os campos, clique em **Adicionar Servidor**. O servidor será adicionado à lista de servidores monitorados.
 
+![server-List](https://prnt.sc/KM9BAzJZ36L3)
+
+
 ## Jogos Compatíveis com GameDig
 
 O **GameDig** suporta uma ampla variedade de jogos. Abaixo estão alguns dos jogos compatíveis:
