@@ -1,4 +1,4 @@
-# Server Status Checker V1.0
+# Server Status Checker
 
 O **Server Status Checker** é uma ferramenta poderosa para monitoramento de servidores de jogos. Ele exibe informações detalhadas sobre o status de servidores, como IP, porta, status (online/offline), jogadores online, ping e outros detalhes importantes. Além disso, o sistema permite a integração com o **Discord**, enviando atualizações automáticas de status para um canal específico via webhooks.
 
