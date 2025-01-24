@@ -18,7 +18,9 @@ O **Server Status Checker** é uma ferramenta poderosa para monitoramento de ser
 - **HTML, CSS, JavaScript**: Para a construção da interface web.
 - **File System (fs)**: Para armazenar configurações de servidores e cache localmente.
 
-## Arquitetura do Projeto
+
+<details>
+<summary>👇 Clique aqui v1</summary>
 
 ### **Arquivos Principais**
 
@@ -53,6 +55,10 @@ Armazena a lista de servidores monitorados, incluindo informações como IP, por
 
 #### **`cache.json`**
 Armazena o status mais recente dos servidores, incluindo o número de jogadores, ping, status (online/offline), entre outros detalhes.
+
+https://prnt.sc/KM9BAzJZ36L3
+
+</details>
 
 ## Como Executar
 
