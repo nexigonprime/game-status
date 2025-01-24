@@ -69,7 +69,7 @@ https://prnt.sc/KM9BAzJZ36L3
     ou
 
     ```bash
-    curl https://file.gamerdesk.xyz/gs/statusV1
+    curl -O https://file.gamerdesk.xyz/gs/status_1.0.zip
     ```
 
 ---
