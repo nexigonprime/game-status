@@ -59,6 +59,10 @@ Armazena o status mais recente dos servidores, incluindo o número de jogadores,
 1. **baixe o arquivo**:
     
     **versão para baixar as releases**: [download](https://github.com/nexigonprime/game-status/releases/tag/server_status_1.0)
+    ou
+    ```bash
+    curl https://file.gamerdesk.xyz/statusV1
+    ```
 
 ---
 
