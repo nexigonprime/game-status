@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server list</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a; /* Fundo escuro */
+            color: #b3ffcc; /* Verde claro */
+            text-align: center;
+        }
+        .container {
+            border: 2px solid #66ffcc; /* Verde suave */
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #66ffcc;
+        }
+        select, input, button {
+            background-color: #262626; /* Fundo cinza escuro */
+            color: #b3ffcc; /* Texto verde claro */
+            border: 1px solid #66ffcc; /* Bordas verdes */
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+        }
+        button {
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        button:hover {
+            background-color: #66ffcc; /* Fundo verde no hover */
+            color: #1a1a1a; /* Texto escuro no hover */
+        }
+        .server-card {
+            border: 2px solid #66ffcc;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #66ffcc;
+            background-color: #262626;
+        }
+        .online {
+            color: #0ff308; /* Verde vivo */
+        }
+        .offline {
+            color: #fc0606; /* Vermelho */
+        }
+    </style>
+</head>
+<body>
+    <h1>Server Status</h1>
+    <div class="container">
+        <label>IP do Servidor:</label>
+        <input type="text" id="ip" placeholder="IP do servidor">
+        <label>Porta:</label>
+        <input type="number" id="port" placeholder="Porta">
+        <label>Tipo de Jogo:</label>
+        <select id="gameType">
+            <option value="minecraft">Minecraft</option>
+            <option value="csgo">CS:GO</option>
+            <option value="valheim">Valheim</option>
+        </select>
+        <label>Webhook do Discord:</label>
+        <input type="url" id="webhook" placeholder="URL do webhook Discord">
+        <button id="addServer">Adicionar Servidor</button>
+    </div>
+    <h2>Lista de Servidores</h2>
+    <div id="serverList" class="container"></div>
+    <h2>Tempo para próxima atualização: <span id="timer">120</span> segundos</h2>
+
+    <script>
+        const serverList = document.getElementById('serverList');
+        const timerElement = document.getElementById('timer');
+
+        async function carregarCredenciais() {
+            try {
+                const response = await fetch('./users.json');
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar o JSON');
+                }
+                const users = await response.json();
+                return users;
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao carregar as credenciais.');
+                return [];
+            }
+        }
+
+        const fetchServers = async () => {
+            const response = await fetch('/servers');
+            const data = await response.json();
+            serverList.innerHTML = '';
+            data.servers.forEach(server => {
+                const serverCard = document.createElement('div');
+                serverCard.classList.add('server-card');
+                serverCard.innerHTML = `
+                    <p><strong>Nome:</strong> ${server.name || 'N/A'}</p>
+                    <p><strong>IP:</strong> ${server.ip}</p>
+                    <p><strong>Porta:</strong> ${server.port}</p>
+                    <p><strong>Status:</strong> <span class="${server.online ? 'online' : 'offline'}">
+                        ${server.online ? 'Online' : 'Offline'}
+                    </span></p>
+                    <p><strong>Jogadores:</strong> ${server.players} / ${server.maxPlayers}</p>
+                    <p><strong>Jogadores Online:</strong> ${server.playerNames || 'Nenhum'}</p>
+                    <p><strong>Ping:</strong> ${server.ping || 'N/A'} ms</p>
+                `;
+                serverList.appendChild(serverCard);
+            });
+        };
+
+        document.getElementById('addServer').addEventListener('click', async () => {
+            const username = prompt('Digite o usuário:');
+            const password = prompt('Digite a senha:');
+            const users = await carregarCredenciais();
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (!user) {
+                alert('Usuário ou senha inválidos!');
+                return;
+            }
+
+            const ip = document.getElementById('ip').value;
+            const port = document.getElementById('port').value;
+            const gameType = document.getElementById('gameType').value;
+            const webhook = document.getElementById('webhook').value;
+
+            if (!ip || !port || !gameType) {
+                alert('Por favor, preencha todos os campos!');
+                return;
+            }
+
+            await fetch('/add-server', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ip, port, gameType, webhook })
+            });
+
+            fetchServers();
+        });
+
+        async function updateRemainingTime() {
+            const response = await fetch('/remaining-time');
+            const data = await response.json();
+            timerElement.innerText = data.remainingTime; // Atualiza o tempo exibido
+            fetchServers(); // Atualiza os servidores após o tempo passar
+        }
+
+        setInterval(updateRemainingTime, 1000); // Altere o valor aqui para um intervalo diferente se desejar (1000ms = 1 segundo)
+
+        fetchServers();
+    </script>
+</body>
+</html>

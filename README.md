@@ -85,7 +85,7 @@ https://prnt.sc/KM9BAzJZ36L3
 3. **Inicie o Servidor**:
     Após instalar as dependências, inicie o servidor com o seguinte comando:
     ```bash
-    npm start
+    node .
     ```
 
 ---
