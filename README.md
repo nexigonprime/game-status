@@ -64,7 +64,7 @@ https://prnt.sc/KM9BAzJZ36L3
 
 1. **baixe o arquivo**:
     
-    **versão para baixar as releases**: [download](https://github.com/nexigonprime/game-status/releases/tag/server_status_1.0)
+    **versão para baixar as releases**: [download](https://github.com/nexigonprime/game-status/releases/)
 
     ou
 
@@ -102,8 +102,6 @@ https://prnt.sc/KM9BAzJZ36L3
    - **Webhook do Discord**: A URL do webhook para enviar notificações para o Discord.
 
 2. Após preencher os campos, clique em **Adicionar Servidor**. O servidor será adicionado à lista de servidores monitorados.
-
-![server-List](https://prnt.sc/KM9BAzJZ36L3)
 
 
 ## Jogos Compatíveis com GameDig
