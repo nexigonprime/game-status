@@ -63,13 +63,9 @@ https://prnt.sc/KM9BAzJZ36L3
 ## Como Executar
 
 1. **baixe o arquivo**:
-    
-    **versão para baixar as releases**: [download](https://github.com/nexigonprime/game-status/releases/)
-
-    ou
 
     ```bash
-    curl -O https://file.gamerdesk.xyz/gs/status_1.0.zip
+    curl -O https://github.com/nexigonprime/game-status/releases/download/gamestatus/status_1.0.zip
     ```
 
 ---
