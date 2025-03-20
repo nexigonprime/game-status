@@ -1,0 +1,38 @@
+{
+  "name": "game_server",
+  "version": "2.0.0",
+  "description": "pagina game server list atualizado ",
+  "main": "server.js",
+  "scripts": {
+    "start": "concurrently \"node server.js\" \"nodemon --ignore cache.json bot.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexigonprime/game-status.git"
+  },
+  "author": "nexigonprime",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nexigonprime/game-status/issues"
+  },
+  "homepage": "https://docs.gamerdesk.xyz/gameserver",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "concurrently": "^9.1.2",
+    "discord.js": "^14.18.0",
+    "express": "^4.21.1",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "fs": "^0.0.1-security",
+    "gamedig": "^5.1.4",
+    "node-fetch": "^2.7.0",
+    "nodemon": "^3.1.7"
+  },
+  "nodemon": {
+    "ignore": [
+      "cache.json"
+    ]
+  }
+}
+

@@ -1,0 +1,17 @@
+{
+  "servers": [
+    {
+      "name": "Hypixel Network [1.8-1.21] NEW SB ISLAND - BACKWATER BAYOU",
+      "ip": "mc.hypixel.net",
+      "port": 25565,
+      "type": "minecraft",
+      "map": "",
+      "players": 0,
+      "maxPlayers": 200000,
+      "playerNames": "",
+      "online": true,
+      "ping": 18
+    }
+  ],
+  "lastUpdated": 1742429265900
+}
